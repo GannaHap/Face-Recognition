@@ -1,0 +1,342 @@
+* {
+  padding: 0;
+  text-decoration: none;
+  margin: 0;
+}
+
+/* Animation */
+@keyframes fadeUpDown {
+  0% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1.2);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+
+  80% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Font Family*/
+/* Gilroy */
+@font-face {
+  font-family: 'gilroyextrabold';
+  src: url('gilroy-extrabold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* For All */
+body {
+  background: linear-gradient(to right, #00083b, #0092ff);
+}
+
+/* Body HTML */
+.container {
+  height: 100vh;
+  background-image: url('img/hexagon.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  height: 70px;
+  right: 0;
+  left: 0;
+  padding: 0.2em 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.7s all ease-in;
+  box-sizing: border-box;
+}
+
+nav.show {
+  top: 0;
+  height: 70px;
+  background: linear-gradient(to right, #00083b, #0092ff);
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.4);
+}
+
+.menu {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.menu a {
+  font-size: 1.3rem;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  opacity: 0.9;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
+
+.menu a.onActive {
+  font-size: 1.3rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.menu a:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Content */
+.cover {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  padding-top: 70px;
+  gap: 10px;
+}
+
+.content {
+  padding: 10px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title h1 {
+  font-family: 'gilroyextrabold', arial;
+  font-size: 8em;
+  color: white;
+  display: flex;
+  margin-left: -5px;
+  margin-bottom: -35px;
+}
+
+.title h2 {
+  font-family: 'gilroyextrabold', arial;
+  color: white;
+  font-size: 2.8em;
+}
+
+.content p {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  line-height: 22px;
+}
+
+button {
+  width: 100px;
+  background-color: #36bce1;
+  border: none;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 15px;
+  margin-top: 20px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #35a6c5;
+}
+
+.sosmed {
+  width: 160px;
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.sosmed a {
+  margin-top: 25px;
+  display: flex;
+  font-size: 1.7rem;
+  align-items: center;
+  opacity: 0.8;
+  color: white;
+}
+
+.sosmed a:hover {
+  opacity: 1;
+}
+
+.hp {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bgHP {
+  transform: rotate(0deg);
+  animation: rotate 2s ease forwards;
+  animation-delay: 2s;
+}
+
+.cover-HP {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.smartphone {
+  transform: scale(0);
+  animation: fadeUpDown 1.5s ease forwards;
+  animation-delay: 2.5s;
+}
+
+/* Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+  .container {
+    background-image: none;
+  }
+
+  .cover {
+    background-image: url('img/hexagon.png');
+  }
+
+  .cover {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    order: 2;
+  }
+
+  .hp {
+    order: 1;
+  }
+
+  .menu {
+    width: 40vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 70px;
+    right: -100%;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(50px);
+    border-radius: 5px 0 0 5px;
+    transition: 1s all ease;
+  }
+
+  .menu.active {
+    width: 40vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 70px;
+    right: 0%;
+    transition: 1s all ease;
+    opacity: 1;
+    backdrop-filter: blur(50px);
+    border-radius: 5px 0 0 5px;
+  }
+
+  .menu.active a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .menu.active.show {
+    width: 40vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 70px;
+    right: 0%;
+    transition: 1s all ease;
+    opacity: 1;
+    background: linear-gradient(to right, rgb(0, 70, 147), #0092ff);
+    backdrop-filter: blur(50px);
+    border-radius: 0;
+  }
+
+  .menu a {
+    border-radius: 0;
+    padding: 10px;
+  }
+
+  .menu a:hover {
+    background-color: #2b2f49;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.5rem;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 0.2em 2rem;
+  }
+
+  .sosmed {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .content {
+    padding: 10px 30px;
+  }
+
+  .sosmed {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
